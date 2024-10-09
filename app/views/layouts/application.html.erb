@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Portfolio</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_tag %>
+  </head>
+
+  <body>
+    <header>
+<% @pages = Page.all %>
+      <% @pages.each do |page| %>
+        <ul>
+        <li><%= link_to page.title, page_path(page), class: "link"%></li>
+        </ul>
+      <% end %>
+      <h3 class="name"><%= link_to 'Smerch24', 'https://github.com/Smerch24', class: "name"%></h2>
+    </header>
+    <%= yield %>
+  </body>
+</html>
