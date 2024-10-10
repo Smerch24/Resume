@@ -1,0 +1,13 @@
+<%= page_with model: [:admin, @page] do |page| %>
+  <div>
+    <%= page.label :title %><br>
+    <%= page.text_field :title %>
+  </div>
+  <div>
+    <%= page.label :body %><br>
+    <%= page.text_area :body %>
+  </div>
+  <div>
+    <%= page.submit %>
+  </div>
+<% end %>
