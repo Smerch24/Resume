@@ -1,4 +1,4 @@
-<%= page_with model: [:admin, @page] do |page| %>
+<%= form_with model: [:admin, @page] do |page| %>
   <div>
     <%= page.label :title %><br>
     <%= page.text_field :title %>

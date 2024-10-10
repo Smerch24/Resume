@@ -1,4 +1,5 @@
 class Admin::PagesController < ApplicationController
+  layout 'admin'
   before_action :authenticate
 
   def index
