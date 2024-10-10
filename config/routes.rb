@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-  resources :pages
-  root 'pages#index'
+  namespace :admin do
+    resources :pages
+    root 'pages#index'
+  end
 end
