@@ -107,3 +107,9 @@ body {
 li {
   list-style: none;
 }
+
+.field {
+  border-radius: 5px;
+  border-width: 1px;
+  padding: 8px;
+}

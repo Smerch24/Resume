@@ -1,5 +1,7 @@
 <%= form_with model: [:admin, @page] do |form| %>
+  <%= form.label :title %>
+  <%= form.text_area :title %>
   <%= form.label :body %>
-  <%= form.rich_text_area :body %>
+  <%= form.text_area :body %>
   <%= form.submit %>
 <% end %>

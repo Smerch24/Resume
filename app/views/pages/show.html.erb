@@ -1,8 +1,29 @@
 <div class="main">
-
-
-<div class="title"><%= @page.title %></div>
-<div class="body"><%= @page.body %></div>
-
+  <div class="title"><%= @page.title %></div>
+  <div class="body"><%= @page.body %></div>
 </div>
 
+<div class="comments">
+  <% @comments.each do |form| %>
+    <h2><%= form.author %>: <%= form.content %></h2>
+    
+  <% end %>
+</div>
+
+
+<h2>Add coment:</h2>
+<%= form_with(model: [@page, @comment]) do |form| %>
+  <div>
+    <%= form.label :author %>
+    <%= form.text_field :author, class: "field" %>
+  </div>
+<br>
+  <div>
+    <%= form.label :content %>
+    <%= form.text_field :content, class: "field" %>
+  </div>
+
+  <div>
+    <%= form.submit 'Submit' %>
+  </div>
+<% end %>
