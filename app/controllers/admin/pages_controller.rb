@@ -8,6 +8,8 @@ class Admin::PagesController < ApplicationController
 
   def show
     @page = Page.find(params[:id])
+    @page = Page.find(params[:id])
+    @comments = @page.comments
   end
 
   def new

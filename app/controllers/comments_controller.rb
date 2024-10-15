@@ -1,20 +1,29 @@
 class CommentsController < ApplicationController
-  class CommentsController < ApplicationController
-    def create
-      @page = Page.find(params[:id])
-      @comment = @page.comments.new(comment_params)
+  def new
+    @page = Page.find(params[:page_id])
+    @comment = @page.comments.new
+  end
 
-      if @comment.save
-        redirect_to @page
-      else
-        render 'pages/show'
-      end
+  def create
+    @page = Page.find(params[:page_id])
+    @comment = @page.comments.new(comment_params)
+
+    if @comment.save
+      redirect_to @page
+    else
+      render 'pages/show'
     end
+  end
 
-    private
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect_to root_path
+  end
 
-    def comment_params
-      params.require(:comment).permit(:name, :content)
-    end
+  private
+
+  def comment_params
+    params.require(:comment).permit(:author, :content)
   end
 end

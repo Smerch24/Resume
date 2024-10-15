@@ -1,5 +1,4 @@
 class PagesController < ApplicationController
-  @pages = Page.all
   def index
     @page = Page.find(1)
     @pages = Page.all
@@ -7,6 +6,7 @@ class PagesController < ApplicationController
 
   def show
     @page = Page.find(params[:id])
+    @comments = @page.comments
     @comment = Comment.new
   end
 end
