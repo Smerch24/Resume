@@ -2,10 +2,11 @@
 <p><%= @page.body %></p>
 <%= link_to 'Back', admin_pages_path %>
 
-<h2>Delete comments:</h2>
+<h2>Comments:</h2>
 <div class="comments">
   <% @comments.each do |form| %>
-    <h2><%= form.author %>: <%= form.content %></h2>
-      <%= button_to 'delete', [@page, form], method: :delete %>
+  <table>
+    <td><%= button_to 'delete', [@page, form], method: :delete, class: "delete-btn" %><th><%= form.author %>: <%= form.content %></th></td>
+  </table>
   <% end %>
 </div>

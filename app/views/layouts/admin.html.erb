@@ -12,8 +12,9 @@
 
   <body>
     <header>
-      <h2>Admin panel</h2>
-      <h2><%= link_to 'Back to site', pages_path %></h2>
+      <div>
+      <h2 class="link">Admin panel <%= link_to 'Back to site', pages_path, class: "link" %></h2>
+      </div>
     </header>
     <%= yield %>
   </body>

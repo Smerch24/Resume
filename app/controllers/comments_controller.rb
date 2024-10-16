@@ -17,9 +17,10 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    @page = Page.find(params[:page_id])
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to root_path
+    redirect_to admin_page_path(@page)
   end
 
   private
