@@ -1,13 +1,17 @@
-<%= form_with model: [:admin, @page] do |page| %>
-  <div>
+.<div class="main">
+<%= form_with model: [:admin, @page], html: { class: 'page-form' } do |page| %>
+  <div class="form-group">
     <%= page.label :title %><br>
-    <%= page.text_field :title %>
+    <%= page.text_field :title, class: 'form-control' %>
   </div>
-  <div>
+  
+  <div class="form-group">
     <%= page.label :body %><br>
-    <%= page.rich_text_area :body %>
+    <%= page.text_area :body, class: 'form-control rich-text-area' %>
   </div>
+  
   <div>
-    <%= page.submit %>
+    <%= page.submit 'Save', class: 'btn btn-submit' %>
   </div>
 <% end %>
+</div>

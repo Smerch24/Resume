@@ -1,6 +1,7 @@
+<div class="main">
 <h1>Pages</h1>
 <%= link_to 'New page', new_admin_page_path %>
-<table>
+<table >
   <tr>
     <th>Title</th>
     <th>Page</th>
@@ -9,10 +10,11 @@
     <tr>
       <td><%= page.title %></td>
       <td>
-        <%= link_to 'See', admin_page_path(page) %>
-        <%= link_to 'Edit', edit_admin_page_path(page) %>
-        <%= link_to 'Delete', admin_page_path(page), method: :delete %>
+        <%= link_to 'See', admin_page_path(page), class: "link" %>
+        <%= link_to 'Edit', edit_admin_page_path(page), class: "link"  %>
+        <%= button_to 'Delete', admin_page_path(page), method: :delete, class: "delete-page" %>
       </td>
     </tr>
   <% end %>
 </table>
+</div>
