@@ -3,3 +3,29 @@
   <div class="body"><%= @page.body %></div>
 </div>
 
+<hr>
+
+<h2>Add comment:</h2>
+<%= form_with(model: [@page, @comment]) do |form| %>
+  <div><%= form.label :author %></div>
+  <div><%= form.text_field :author, class: "field author-field" %></div>
+  <br>
+  <div><%= form.label :content %></div>
+  <div><%= form.text_field :content, class: "field" %></div>
+
+  <div class="btn-field">
+    <%= form.submit 'Submit', class: "btn" %>
+  </div>
+<% end %>
+
+<div class="comments">
+  <% if @comments.any? %>
+    <% @comments.each do |form| %>
+      <% if form.author.present? && form.content.present? %>
+        <h2><%= form.author %>: <%= form.content %></h2>
+      <% end %>
+    <% end %> 
+  <% else %>
+    <p>No comments yet.</p>
+  <% end %>
+</div>

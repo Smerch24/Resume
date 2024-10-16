@@ -11,6 +11,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @page
     else
+      @comments = @page.comments
       render 'pages/show'
     end
   end

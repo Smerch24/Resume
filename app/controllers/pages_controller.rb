@@ -2,6 +2,8 @@ class PagesController < ApplicationController
   def index
     @page = Page.find(1)
     @pages = Page.all
+    @comment = Comment.new
+    @comments = @page.comments
   end
 
   def show
