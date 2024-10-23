@@ -86,7 +86,7 @@ tr a {
 }
 
 .page-form {
-  max-width: 600px;
+  max-width: 700px;
   margin: 20px auto;
   padding: 20px;
   background-color: var(--light-grey);
@@ -96,6 +96,7 @@ tr a {
 
 .form-group {
   margin-bottom: 15px;
+  padding-right: 15px;
 }
 
 .form-control {
