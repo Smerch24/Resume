@@ -1,7 +1,5 @@
 class Admin::PagesController < ApplicationController
   layout 'admin'
-  require 'dotenv'
-  Dotenv.load
   before_action :find_params_by_id, only: %i[show edit destroy]
   before_action :authenticate
 
