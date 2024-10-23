@@ -1,5 +1,6 @@
 class Admin::PagesController < ApplicationController
   layout 'admin'
+  before_action :find_params_by_id, only: %i[show edit destroy]
   before_action :authenticate
 
   def index
@@ -7,8 +8,6 @@ class Admin::PagesController < ApplicationController
   end
 
   def show
-    @page = Page.find(params[:id])
-    @page = Page.find(params[:id])
     @comments = @page.comments
   end
 
@@ -25,12 +24,9 @@ class Admin::PagesController < ApplicationController
     end
   end
 
-  def edit
-    @page = Page.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @page = Page.find(params[:id])
     if @page.update(page_params)
       redirect_to admin_page_path(@page)
     else
@@ -39,7 +35,6 @@ class Admin::PagesController < ApplicationController
   end
 
   def destroy
-    @page = Page.find(params[:id])
     @page.destroy
     redirect_to admin_pages_path
   end
@@ -48,6 +43,10 @@ class Admin::PagesController < ApplicationController
 
   def page_params
     params.require(:page).permit(:title, :body)
+  end
+
+  def find_params_by_id
+    @page = Page.find(params[:id])
   end
 
   def authenticate
