@@ -1,5 +1,7 @@
 class Admin::PagesController < ApplicationController
   layout 'admin'
+  require 'dotenv'
+  Dotenv.load
   before_action :find_params_by_id, only: %i[show edit destroy]
   before_action :authenticate
 
@@ -51,7 +53,7 @@ class Admin::PagesController < ApplicationController
 
   def authenticate
     authenticate_or_request_with_http_basic do |username, password|
-      username == 'admin' && password == 'password'
+      username == ENV['ADMIN_USERNAME'] && password == ENV['ADMIN_PASSWORD']
     end
   end
 end

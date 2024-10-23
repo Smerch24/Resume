@@ -35,6 +35,8 @@ gem 'bootsnap', require: false
 
 gem 'webpacker'
 
+gem 'dotenv', groups: %i[development test]
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
