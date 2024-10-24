@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Controller for managing comments
 class CommentsController < ApplicationController
   before_action :find_page_by_id, only: %i[new create destroy]
 
