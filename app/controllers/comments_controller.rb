@@ -1,11 +1,14 @@
+# frozen_string_literal: true
+
+# Controller for managing comments
 class CommentsController < ApplicationController
+  before_action :find_page_by_id, only: %i[new create destroy]
+
   def new
-    @page = Page.find(params[:page_id])
     @comment = @page.comments.new
   end
 
   def create
-    @page = Page.find(params[:page_id])
     @comment = @page.comments.new(comment_params)
 
     if @comment.save
@@ -17,7 +20,6 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @page = Page.find(params[:page_id])
     @comment = Comment.find(params[:id])
     @comment.destroy
     redirect_to admin_page_path(@page)
@@ -27,5 +29,9 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:author, :content)
+  end
+
+  def find_page_by_id
+    @page = Page.find(params[:page_id])
   end
 end
