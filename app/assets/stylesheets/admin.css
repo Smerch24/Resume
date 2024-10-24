@@ -86,7 +86,7 @@ tr a {
 }
 
 .page-form {
-  max-width: 700px;
+  max-width: 730px;
   margin: 20px auto;
   padding: 20px;
   background-color: var(--light-grey);
@@ -95,13 +95,14 @@ tr a {
 }
 
 .form-group {
-  margin-bottom: 15px;
-  padding-right: 15px;
+  padding: 10px;
+  margin-right: 16px;
 }
 
 .form-control {
+  text-align: center;
+  height: 36px;
   width: 100%;
-  padding: 10px;
   border: 1px solid var(--dark-grey);
   border-radius: 4px;
   background-color: var(--light-grey);
@@ -111,6 +112,10 @@ tr a {
   }
 }
 
+.title-control {
+  padding-right: 16px;
+}
+
 .btn-submit {
   background-color: var(--light-green);
   color: #333;
@@ -118,6 +123,7 @@ tr a {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  margin-left: 30px;
 
   &:hover {
     background-color: var(--green);

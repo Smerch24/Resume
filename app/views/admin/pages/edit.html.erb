@@ -1,8 +1,9 @@
-.<div class="main">
+<div class="main">
+<%= link_to 'Back', admin_pages_path %>
 <%= form_with model: [:admin, @page], html: { class: 'page-form' } do |page| %>
   <div class="form-group">
     <%= page.label :title %><br>
-    <%= page.text_field :title, class: 'form-control' %>
+    <%= page.text_field :title, class: 'form-control title-control' %>
   </div>
   
   <div class="form-group">

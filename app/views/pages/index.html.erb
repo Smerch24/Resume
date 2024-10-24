@@ -19,7 +19,7 @@
 <% end %>
 
 <div class="comments">
-  <% if @comments.any? %>
+  <% if @comments.present? %>
     <% @comments.each do |form| %>
       <% if form.author.present? && form.content.present? %>
         <h2><%= form.author %>: <%= form.content %></h2>
